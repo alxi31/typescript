@@ -14,3 +14,19 @@
  * 2. Store the participant data in a single collection.
  * 3. Display the participant data using console.log.
  */
+
+type participant = {
+    studentID: string;
+    name: string;
+    age: number;
+    hasPaid: boolean;
+}
+
+const Participant:participant[] = [
+    { studentID: "ST001", name: "Ahmad Fauzi", age: 16, hasPaid: true },
+    { studentID: "ST002", name: "Siti Nurhaliza", age: 17, hasPaid: true },
+    { studentID: "ST003", name: "Budi Santoso", age: 16, hasPaid: true },    
+];
+
+console.log("Backend Development Class Participants:");
+console.table(Participant);

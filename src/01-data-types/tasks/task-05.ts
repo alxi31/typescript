@@ -38,7 +38,7 @@ const attendance2: Attendance = {
     checkOutTime: "17:30",
     totalWorkingHours: 8,
     isPresent: true
-}
+};
 
 const attendance3: Attendance = {
     employeeID: "E003",
@@ -48,7 +48,7 @@ const attendance3: Attendance = {
     checkOutTime: "18:00",
     totalWorkingHours: 8,
     isPresent: true
-}
+};
 
 console.log("Attendance 1:", attendance1);
 console.log("Attendance 2:", attendance2);

@@ -17,41 +17,64 @@ type Registration = {
     studentName: string;
     fullName: string;
     gradeLevel: string;
-    courseID: number;
+    courseID: string;
     courseTitle: string;
     instructorName: string;
     totalLearningHours: string;
     dateregistration:string;
     isPaymentCompleted: boolean;
 
-}
+};
 
 const registration1: Registration = {
-    studentName:  "banu",
-    fullName: "banu setyo budi",
-    gradeLevel: "x",
+    studentName:  "budi",
+    fullName: "budi santoso",
+    gradeLevel: "X",
     courseID: "542323870",
-    courseTitle: "learn technic cook",
+    courseTitle: "Belajar Dasar Pemrograman Python",
     instructorName: "agus hariyanto",
     totalLearningHours: "30 hours",
     dateregistration: "05 mei 2010",
     isPaymentCompleted: true,
-}
+};
 
 
 
 
 const registration2: Registration = {
-    studentName:  "banu",
-    fullName: "banu setyo budi",
-    gradeLevel: "x",
-    courseID: "542323870",
-    courseTitle: "learn technic cook",
-    instructorName: "agus hariyanto",
-    totalLearningHours: "30 hours",
-}
+    studentName: "sari",
+    fullName: "sari putri dewi",
+    gradeLevel: "XI",
+    courseID: "542323800",
+    courseTitle: "basic css",
+    instructorName: "bagus hariyadi",
+    totalLearningHours: "25 hours",
+    dateregistration: "",
+    isPaymentCompleted: false,
+};
+
+
+const registration3: Registration = {
+    studentName: "dewi",
+    fullName: "dewi kartika ika",
+    gradeLevel: "XI",
+    courseID: "542323900",
+    courseTitle: "basic js",
+    instructorName: "bima eka putra",
+    totalLearningHours: "25 hours",
+    dateregistration: "",
+    isPaymentCompleted: true,
+};
 
 console.log("Registration 1:", registration1);
+console.log("Status 1:", registration1.isPaymentCompleted ? "lunas" : "tidak lunas");
+
 console.log("Registration 2:", registration2);
+console.log("Status 2:", registration2.isPaymentCompleted ? "lunas" : "tidak lunas");
+
+console.log("Registration 3:", registration3);
+console.log("Status 3:", registration3.isPaymentCompleted ? "lunas" : "tidak lunas");
+
+
 
 
