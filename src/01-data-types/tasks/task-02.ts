@@ -14,3 +14,28 @@
  * 4. Declare all variables in TypeScript.
  * 5. Display the product data using console.log.
  */
+
+const productName: string = "Mechanical Keyboard RGB";
+const productCode: string = "KBR-001";
+const originalPrice: number = 850000;
+const discountPercentage: number = 25;
+const quantityToBuy: number = 2;
+const isPremiumMember: boolean = true;
+const currentStock: number = 18;
+const discountedPrice: number = originalPrice - (originalPrice * discountPercentage / 100);
+
+console.log("Product Name:", productName);
+console.log("Product Code:", productCode);
+console.log("Original Price (Rupiahs):", originalPrice);
+console.log("Discount Percentage:", discountPercentage + "%");
+console.log("Quantity to Buy:", quantityToBuy);
+console.log("Is Premium Member:", isPremiumMember);
+console.log("Current Stock:", currentStock);
+console.log("Discounted Price (Rupiahs):", discountedPrice);
+console.log("Total Price (Rupiahs):", discountedPrice * quantityToBuy);
+console.log("Stock Availability:", currentStock >= quantityToBuy ? "In Stock" : "Out of Stock");
+console.log("Shipping Cost:", isPremiumMember ? "Free" : "Standard Shipping Charges Apply");
+console.log("Final Amount to Pay (Rupiahs):", discountedPrice * quantityToBuy + (isPremiumMember ? 0 : 50000)); // Assuming standard shipping cost is 50000 rupiahs
+console.log("Purchase Status:", currentStock >= quantityToBuy ? "Purchase Successful" : "Purchase Failed - Insufficient Stock");
+console.log("Remaining Stock After Purchase:", currentStock - quantityToBuy >= 0 ? currentStock - quantityToBuy : currentStock);
+console.log("Thank you for shopping with us!");
