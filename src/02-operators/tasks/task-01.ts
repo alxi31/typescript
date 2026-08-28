@@ -14,3 +14,25 @@
  *  - Final payment
  * 2. Display the calculation results.
  */
+
+
+const friedRicePrice = 18000;
+const friedRiceQty = 3;
+const waterPrice = 5000;
+const waterQty = 2;
+const discount = 10000;
+
+const totalFoodPrice: number = friedRicePrice*friedRiceQty
+const totalDrinksPrice: number = waterPrice*waterQty
+const grandtotal: number = totalFoodPrice+totalDrinksPrice
+const finalPayment: number = grandtotal-discount
+
+console.log("|Rincian Pembelian Kantin Sekolah|")
+console.log("Total Harga Makanan: " + totalFoodPrice)
+
+console.log("Total Harga Minuman: " + totalDrinksPrice)
+
+console.log("Total: " + grandtotal)
+console.log("Diskon (Anggota Osis): " + discount)
+console.log("Pembayaran Akhir: " + finalPayment)
+

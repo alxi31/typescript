@@ -14,3 +14,27 @@
  * Task: Store and display the result in a variable named "isEligible"
 
  */
+
+
+
+type graduationCeremony = {
+    finalScore:number;
+    attendance:number;
+    tuitionPaid:boolean;
+    
+}
+
+
+
+
+const Graduation1: graduationCeremony = {
+    finalScore: 92,
+    attendance: 94,
+    tuitionPaid: true,
+}
+
+
+const isEligible: boolean = Graduation1.finalScore >= 75 && Graduation1.attendance >= 90 && Graduation1.tuitionPaid;
+
+console.table({ "Siswa 1": Graduation1 });
+console.table({"isEligible: " : isEligible});

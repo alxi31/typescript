@@ -13,3 +13,40 @@
  * - Discount amount
  * - Final payment
  */
+
+
+
+const hoursUsed = 7;
+const minutesUsed = 35;
+
+const RATE_PER_HOUR = 8000;
+const DISCOUNT_THRESHOLD_HOURS = 5;
+const DISCOUNT_RATE = 0.15; 
+
+const totalMinutes = (hoursUsed * 60) + minutesUsed;
+
+
+const remainingMinutes = totalMinutes % 60;
+
+
+const billedHours = Math.ceil(totalMinutes / 60);
+
+
+const totalBeforeDiscount = billedHours * RATE_PER_HOUR;
+
+
+const isEligibleForDiscount = hoursUsed > DISCOUNT_THRESHOLD_HOURS;
+const discountAmount = isEligibleForDiscount ? totalBeforeDiscount * DISCOUNT_RATE : 0;
+
+const finalPayment = totalBeforeDiscount - discountAmount;
+
+
+console.log("=== Tagihan Warnet ===");
+console.log("Waktu Pemakaian:", hoursUsed, "jam", minutesUsed, "menit");
+console.log("Total Waktu (menit):", totalMinutes);
+console.log("Sisa Menit Setelah Jam Penuh:", remainingMinutes);
+console.log("Total Jam yang Ditagih:", billedHours, "jam");
+console.log("Total Sebelum Diskon: Rp" + totalBeforeDiscount.toLocaleString("id-ID"));
+console.log("Berhak Diskon 15%:", isEligibleForDiscount ? "Ya" : "Tidak");
+console.log("Jumlah Diskon: Rp" + discountAmount.toLocaleString("id-ID"));
+console.log("Total Pembayaran Akhir: Rp" + finalPayment.toLocaleString("id-ID"));

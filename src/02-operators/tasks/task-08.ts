@@ -24,3 +24,47 @@
  * - Final bill
  * - Green Energy Program eligibility
  */
+
+
+const previousMeter = 25640;
+const currentMeter = 25892;
+const pricePerKWh = 1650;
+const hasSolarPanel = true;
+const isEnergySavingMode = false;
+
+const SOLAR_DISCOUNT_RATE = 0.20;
+const ENERGY_SAVING_DISCOUNT_RATE = 0.05; 
+const GREEN_PROGRAM_MAX_USAGE = 300; 
+
+
+const totalConsumption = currentMeter - previousMeter;
+
+
+const billBeforeDiscount = totalConsumption * pricePerKWh;
+
+
+let totalDiscountRate = 0;
+if (hasSolarPanel) {
+    totalDiscountRate += SOLAR_DISCOUNT_RATE;
+}
+if (isEnergySavingMode) {
+    totalDiscountRate += ENERGY_SAVING_DISCOUNT_RATE;
+}
+const discountAmount = billBeforeDiscount * totalDiscountRate;
+
+
+const finalBill = billBeforeDiscount - discountAmount;
+
+
+const isEligibleForGreenProgram = 
+    hasSolarPanel && 
+    totalConsumption < GREEN_PROGRAM_MAX_USAGE && 
+    isEnergySavingMode;
+
+
+console.log("=== Laporan Pemakaian Listrik ===");
+console.log("Total Konsumsi Energi:", totalConsumption, "kWh");
+console.log("Tagihan Sebelum Diskon: Rp" + billBeforeDiscount.toLocaleString("id-ID"));
+console.log("Total Diskon (" + (totalDiscountRate * 100) + "%): Rp" + discountAmount.toLocaleString("id-ID"));
+console.log("Tagihan Akhir: Rp" + finalBill.toLocaleString("id-ID"));
+console.log("Eligible Green Energy Program:", isEligibleForGreenProgram ? "Ya" : "Tidak");

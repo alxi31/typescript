@@ -17,3 +17,27 @@
  * - Bonus
  * - Final salary
  */
+
+const employeeName = "Dimas";
+const basicSalary = 5000000;
+const overtimeHours = 12;
+const overtimeRate = 50000;
+const bonusAmount = 300000;
+
+
+const overtimePay = overtimeHours * overtimeRate;
+
+
+const bonus = overtimeHours > 10 ? bonusAmount : 0;
+
+
+const finalSalary = basicSalary + overtimePay + bonus;
+
+
+console.log("=== Slip Gaji Karyawan ===");
+console.log("Nama Karyawan:", employeeName);
+console.log("Gaji Pokok: Rp" + basicSalary.toLocaleString("id-ID"));
+console.log("Jam Lembur:", overtimeHours, "jam");
+console.log("Upah Lembur: Rp" + overtimePay.toLocaleString("id-ID"));
+console.log("Bonus Kinerja: Rp" + bonus.toLocaleString("id-ID"));
+console.log("Gaji Akhir: Rp" + finalSalary.toLocaleString("id-ID"));

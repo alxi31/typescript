@@ -33,3 +33,49 @@
  * - Calculate the remaining scholarship budget.
  * - Display whether the student is accepted.
  */
+
+
+const studentName = "Alya Putri";
+const gpa = 3.89;
+const familyIncome = 4200000;
+const competitionCount = 4;
+const hasDisciplinaryRecord = false; 
+const documentsComplete = true; 
+
+const SCHOLARSHIP_AMOUNT = 12000000;
+const TOTAL_BUDGET = 500000000;
+
+
+const meetsGPA = gpa >= 3.75;
+const meetsIncome = familyIncome < 5000000;
+const meetsCompetition = competitionCount >= 3;
+const meetsDiscipline = hasDisciplinaryRecord === false;
+const meetsDocuments = documentsComplete === true;
+
+
+const isQualified = 
+    meetsGPA && 
+    meetsIncome && 
+    meetsCompetition && 
+    meetsDiscipline && 
+    meetsDocuments;
+
+
+const scholarshipAmount = isQualified ? SCHOLARSHIP_AMOUNT : 0;
+
+
+const remainingBudget = TOTAL_BUDGET - scholarshipAmount;
+
+
+console.log("=== Hasil Seleksi Beasiswa ===");
+console.log("Nama Mahasiswa:", studentName);
+console.log("--- Detail Evaluasi Syarat ---");
+console.log("GPA memenuhi syarat (>= 3.75):", meetsGPA);
+console.log("Pendapatan memenuhi syarat (< Rp5.000.000):", meetsIncome);
+console.log("Jumlah kompetisi memenuhi syarat (>= 3):", meetsCompetition);
+console.log("Tidak ada pelanggaran disiplin:", meetsDiscipline);
+console.log("Dokumen lengkap:", meetsDocuments);
+console.log("------------------------------");
+console.log("Status Kelulusan Beasiswa:", isQualified ? "DITERIMA" : "TIDAK DITERIMA");
+console.log("Jumlah Beasiswa: Rp" + scholarshipAmount.toLocaleString("id-ID"));
+console.log("Sisa Anggaran Beasiswa: Rp" + remainingBudget.toLocaleString("id-ID"));
