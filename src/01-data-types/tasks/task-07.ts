@@ -49,7 +49,7 @@ const registration2: Registration = {
     courseTitle: "basic css",
     instructorName: "bagus hariyadi",
     totalLearningHours: "25 hours",
-    dateregistration: "",
+    dateregistration: "6 april 2009",
     isPaymentCompleted: false,
 };
 
@@ -62,7 +62,7 @@ const registration3: Registration = {
     courseTitle: "basic js",
     instructorName: "bima eka putra",
     totalLearningHours: "25 hours",
-    dateregistration: "",
+    dateregistration: "12 februari 2009",
     isPaymentCompleted: true,
 };
 
