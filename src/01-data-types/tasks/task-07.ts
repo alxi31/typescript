@@ -14,7 +14,6 @@
 
 
 type Registration = {
-    studentID: string;
     studentName: string;
     fullName: string;
     gradeLevel: string;
@@ -28,7 +27,6 @@ type Registration = {
 };
 
 const registration1: Registration = {
-    studentID: "nano215",
     studentName:  "budi",
     fullName: "budi santoso",
     gradeLevel: "X",
@@ -44,7 +42,6 @@ const registration1: Registration = {
 
 
 const registration2: Registration = {
-    studentID: "nano216",
     studentName: "sari",
     fullName: "sari putri dewi",
     gradeLevel: "XI",
@@ -58,7 +55,6 @@ const registration2: Registration = {
 
 
 const registration3: Registration = {
-    studentID: "nano217",
     studentName: "dewi",
     fullName: "dewi kartika ika",
     gradeLevel: "XI",
