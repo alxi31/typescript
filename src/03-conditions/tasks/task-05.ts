@@ -32,3 +32,36 @@
  *  - Implement the second screening only if the first screening is passed.
  *  - Display the correct result.
  */
+
+type Student = {
+    name: string;
+    gpa: number;
+    familyIncome: number;
+    competitionCount: number;
+    hasDisciplinaryRecord: boolean;
+    documentsComplete: boolean;
+};
+
+const student: Student = {
+    name: "Fajar Hidayat",
+    gpa: 3.86,
+    familyIncome: 4200000,
+    competitionCount: 4,
+    hasDisciplinaryRecord: false,
+    documentsComplete: true,
+};
+
+if (student.gpa > 3.75 && student.familyIncome <= 5000000) {
+    if (
+        student.competitionCount >= 3 &&
+        student.hasDisciplinaryRecord == false &&
+        student.documentsComplete == true
+    ) {
+        console.log("Scholarship Approved");
+    } else {
+        console.log("Passed First Screening, but Failed Second Screening");
+    }
+} else {
+    console.log("Failed First Screening");
+}
+

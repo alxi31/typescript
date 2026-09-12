@@ -7,8 +7,8 @@
  * 
  * If no rooms are available:
  * - Premium members are placed on the priority waiting list.
- * - Regular customers are informed that no rooms are available.
- * 
+    * - Regular customers are informed that no rooms are available.
+    * 
  * Today's reservation:
  * | Information    | Value       |
  * | -------------- | ----------- |
@@ -22,3 +22,31 @@
  * 2. Implement the logic using nested if statements.
  * 3. Display the reservation result.
  */
+
+
+type Reservation = {
+    customerName: string;
+    isPremiumMember: boolean;
+    isRoomAvailable: boolean;
+};
+
+const reservation: Reservation = {
+    customerName: "Nadia putri",
+    isPremiumMember: false,
+    isRoomAvailable: false,
+}
+
+if (reservation.isRoomAvailable) {
+    if (reservation.isPremiumMember) {
+        console.log("Customer receives a free room upgrade.");
+    } else {
+        console.log("Customer receives the reserved room only.");
+    }
+} else {
+    if (reservation.isPremiumMember) {
+        console.log("Customer is placed on the priority waiting list.");
+    } else {
+        console.log("Customer is informed that no rooms are available.");
+    }
+}
+
