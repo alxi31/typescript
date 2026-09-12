@@ -53,3 +53,6 @@ const product3: Product = {
 console.log("Product 1:", product1);
 console.log("Product 2:", product2);
 console.log("Product 3:", product3);
+console.log("harga:",product3.stockQuantity*product3.sellingPrice)
+
+

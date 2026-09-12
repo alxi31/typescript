@@ -30,10 +30,10 @@ console.log("Midterm Exam Score:", midtermScore);
 console.log("Final Exam Score:", finalExamScore);
 console.log("Attendance Score:", attendanceScore);
 console.log("Participates in Extracurricular Activities:", participatesInExtracurricular);
-console.log("Final Score:", (assignmentScore + midtermScore + finalExamScore + attendanceScore) / 4);
-console.log("Final Grade:", (assignmentScore + midtermScore + finalExamScore + attendanceScore) / 4 >= 90 ? "A" :
-    (assignmentScore + midtermScore + finalExamScore + attendanceScore) / 4 >= 80 ? "B" :
-    (assignmentScore + midtermScore + finalExamScore + attendanceScore) / 4 >= 70 ? "C" :
-    (assignmentScore + midtermScore + finalExamScore + attendanceScore) / 4 >= 60 ? "D" : "F");
-    console.log("Pass/Fail Status:", (assignmentScore + midtermScore + finalExamScore + attendanceScore) / 4 >= 60 ? "Pass" : "Fail");  
+        console.log("Final Score:", (assignmentScore + midtermScore + finalExamScore + attendanceScore) / 4);
+        console.log("Final Grade:", (assignmentScore + midtermScore + finalExamScore + attendanceScore) / 4 >= 90 ? "A" :
+            (assignmentScore + midtermScore + finalExamScore + attendanceScore) / 4 >= 80 ? "B" :
+            (assignmentScore + midtermScore + finalExamScore + attendanceScore) / 4 >= 70 ? "C" :
+            (assignmentScore + midtermScore + finalExamScore + attendanceScore) / 4 >= 60 ? "D" : "F");
+            console.log("Pass/Fail Status:", (assignmentScore + midtermScore + finalExamScore + attendanceScore) / 4 >= 60 ? "Pass" : "Fail");  
     

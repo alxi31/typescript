@@ -36,3 +36,4 @@ console.log("Total: " + grandtotal)
 console.log("Diskon (Anggota Osis): " + discount)
 console.log("Pembayaran Akhir: " + finalPayment)
 
+

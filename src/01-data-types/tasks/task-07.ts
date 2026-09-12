@@ -76,5 +76,3 @@ console.log("Registration 3:", registration3);
 console.log("Status 3:", registration3.isPaymentCompleted ? "lunas" : "tidak lunas");
 
 
-
-

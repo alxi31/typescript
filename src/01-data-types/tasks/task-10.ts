@@ -37,3 +37,4 @@ const onlineShopping1:onlineShopping[] = [
 
 console.log("\n--- |Shopping Cart| ---")
 console.table(onlineShopping1)
+console.log("Product Name:", onlineShopping1[1].productName)
