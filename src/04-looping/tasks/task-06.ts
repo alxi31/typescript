@@ -29,7 +29,7 @@ for (let i = 0; i < stocks.length; i++) {
     const quantity = stocks[i];
     totalInventory += quantity;
  
-    // Order matters: check 0 first, because 0 is also < 10
+    
     if (quantity === 0) {
         console.log(`Product ${i + 1}: ${quantity} -> Out of Stock`);
         outOfStockCount++;

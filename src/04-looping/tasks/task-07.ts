@@ -25,7 +25,7 @@ interface Student {
     present: boolean;
 }
  
-// Sample data: replace with the array given in your assignment
+
 const students: Student[] = [
     { name: "Andi", present: true },
     { name: "Budi", present: true },
