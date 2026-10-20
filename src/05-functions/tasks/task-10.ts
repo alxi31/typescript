@@ -34,7 +34,15 @@
  * Reuse existing functions whenever possible
  */
 
-const enrollments = [
+type Enrollment = {
+    student: string;
+    course: string;
+    completed: boolean;
+    score: number;
+    duration: number;
+};
+
+const enrollments: Enrollment[] = [
     {
         student: "Alya",
         course: "TypeScript",
@@ -92,3 +100,234 @@ const enrollments = [
         duration: 20
     }
 ];
+
+
+
+
+function getTotalEnrollments(data: Enrollment[]): number {
+    return data.length;
+}
+
+
+function getCompletedEnrollments(data: Enrollment[]): number {
+    let count = 0;
+
+    for (const enrollment of data) {
+        if (enrollment.completed) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+
+function getIncompleteEnrollments(data: Enrollment[]): number {
+    return getTotalEnrollments(data) -
+        getCompletedEnrollments(data);
+}
+
+function getCompletionPercentage(data: Enrollment[]): number {
+    return (
+        getCompletedEnrollments(data) /
+        getTotalEnrollments(data)
+    ) * 100;
+}
+
+
+
+
+function getHighestScore(data: Enrollment[]): number {
+    let highest = data[0].score;
+
+    for (const enrollment of data) {
+        if (enrollment.score > highest) {
+            highest = enrollment.score;
+        }
+    }
+
+    return highest;
+}
+
+
+function getLowestScore(data: Enrollment[]): number {
+    let lowest = data[0].score;
+
+    for (const enrollment of data) {
+        if (enrollment.score < lowest) {
+            lowest = enrollment.score;
+        }
+    }
+
+    return lowest;
+}
+
+
+function getTotalScore(data: Enrollment[]): number {
+    let total = 0;
+
+    for (const enrollment of data) {
+        total += enrollment.score;
+    }
+
+    return total;
+}
+
+
+function getAverageScore(data: Enrollment[]): number {
+    return getTotalScore(data) /
+        getTotalEnrollments(data);
+}
+
+
+function getPassingStudents(
+    data: Enrollment[],
+    passingScore: number
+): string[] {
+    const students: string[] = [];
+
+    for (const enrollment of data) {
+        if (enrollment.score >= passingScore) {
+            students.push(enrollment.student);
+        }
+    }
+
+    return students;
+}
+
+
+
+function getStudentsByCourse(
+    data: Enrollment[],
+    course: string
+): number {
+    let count = 0;
+
+    for (const enrollment of data) {
+        if (enrollment.course === course) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+
+function getAverageScoreByCourse(
+    data: Enrollment[],
+    course: string
+): number {
+    let totalScore = 0;
+    let totalStudents = 0;
+
+    for (const enrollment of data) {
+        if (enrollment.course === course) {
+            totalScore += enrollment.score;
+            totalStudents++;
+        }
+    }
+
+    return totalScore / totalStudents;
+}
+
+
+
+
+function getTotalLearningHours(
+    data: Enrollment[]
+): number {
+    let totalHours = 0;
+
+    for (const enrollment of data) {
+        totalHours += enrollment.duration;
+    }
+
+    return totalHours;
+}
+
+
+function getAverageLearningDuration(
+    data: Enrollment[]
+): number {
+    return getTotalLearningHours(data) /
+        getTotalEnrollments(data);
+}
+
+
+
+
+function printCourseStatistics(): void {
+    const courses = ["TypeScript", "Database", "Backend"];
+
+    console.log("\n=== COURSE STATISTICS ===");
+
+    for (const course of courses) {
+        console.log(
+            `${course} Students: ${getStudentsByCourse(
+                enrollments,
+                course
+            )}`
+        );
+
+        console.log(
+            `${course} Average Score: ${getAverageScoreByCourse(
+                enrollments,
+                course
+            ).toFixed(2)}`
+        );
+
+        console.log("-------------------");
+    }
+}
+
+
+function printLearningDashboard(): void {
+
+    console.log("===== ONLINE LEARNING DASHBOARD =====");
+
+    console.log("\n=== COMPLETION STATISTICS ===");
+    console.log(
+        `Total Enrollments: ${getTotalEnrollments(enrollments)}`
+    );
+    console.log(
+        `Completed Enrollments: ${getCompletedEnrollments(enrollments)}`
+    );
+    console.log(
+        `Incomplete Enrollments: ${getIncompleteEnrollments(enrollments)}`
+    );
+    console.log(
+        `Completion Percentage: ${getCompletionPercentage(enrollments).toFixed(2)}%`
+    );
+
+    console.log("\n=== ACADEMIC STATISTICS ===");
+    console.log(
+        `Highest Score: ${getHighestScore(enrollments)}`
+    );
+    console.log(
+        `Lowest Score: ${getLowestScore(enrollments)}`
+    );
+    console.log(
+        `Average Score: ${getAverageScore(enrollments).toFixed(2)}`
+    );
+    console.log(
+        `Passing Students: ${getPassingStudents(
+            enrollments,
+            75
+        ).join(", ")}`
+    );
+
+    printCourseStatistics();
+
+    console.log("\n=== LEARNING STATISTICS ===");
+    console.log(
+        `Total Learning Hours: ${getTotalLearningHours(enrollments)}`
+    );
+    console.log(
+        `Average Learning Duration: ${getAverageLearningDuration(
+            enrollments
+        ).toFixed(2)} hours`
+    );
+}
+
+// Run Program
+printLearningDashboard();
