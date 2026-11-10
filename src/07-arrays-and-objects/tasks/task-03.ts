@@ -23,3 +23,9 @@ const attendance = [
     { studentId: 3, status: "present" },
     { studentId: 4, status: "late" },
 ];
+
+const present= attendance.filter(attendance => attendance.status == "present").map(attendance => students.find(students => students.id==attendance.studentId)?.name)
+const absent = attendance.filter(attendance => attendance.status == "present"||"late").map(attendance => students.find(students => students.id==attendance.studentId)?.name)
+                    
+
+console.log(present)

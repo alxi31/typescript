@@ -32,3 +32,27 @@ const employees = [
         ],
     },
 ];
+
+const calculateAverageScore = (employee: { name: string; department: string; projects: { name: string; score: number }[] }) => {
+    const totalScore = employee.projects.reduce((sum, project) => sum + project.score, 0);
+    return totalScore / employee.projects.length;
+}
+
+const getEmployeesWithAverageScoreAbove = (threshold: number) => {  
+    const result: { name: string; averageScore: number }[] = [];
+    employees.forEach(employee => {
+        const averageScore = calculateAverageScore(employee);
+        if (averageScore > threshold) {
+            result.push({ name: employee.name, averageScore });
+        }
+    });
+    return result;
+}
+
+const getEmployeesWithProjectScoreBelow = (threshold: number) => {
+    return employees.filter(employee => employee.projects.some(project => project.score < threshold)).map(employee => employee.name);
+}
+
+console.log("1. Average score for each employee:", employees.map(employee => ({ name: employee.name, averageScore: calculateAverageScore(employee) })));
+console.log("2. Employees with average score above 85:", getEmployeesWithAverageScoreAbove(85));
+console.log("3. Employees with at least one project score below 80:", getEmployeesWithProjectScoreBelow(80));

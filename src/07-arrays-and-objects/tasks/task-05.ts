@@ -26,3 +26,25 @@ const students = [
 ];
 
 const correctAnswers = ["A", "B", "C", "A", "B"];
+
+let score = students.map((students) => students.answers)
+
+const scored = students.map((student) => {
+  const correct = student.answers.filter(
+    (answer, index) => answer === correctAnswers[index]
+  ).length;
+
+  return { ...student, score: correct * 20 };
+});
+console.log(scored)
+
+const highScore = scored.filter((student) => student.score > 70);
+console.log(highScore);
+
+const bestScore = scored.reduce((best, student) =>
+  student.score > best.score ? student : best
+);
+console.log(bestScore);
+
+const avg = scored.reduce((sum, student) => sum + student.score, 0) / scored.length;
+console.log("avg score: " + avg);

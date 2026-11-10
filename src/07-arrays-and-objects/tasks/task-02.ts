@@ -45,3 +45,25 @@ const products = [
         stock: 3,
     },
 ];
+
+let availableproduct =products.filter(products => products.stock >= 1)
+let productname =products.map(products => products.name)
+let totalstock=0
+let totalvalue=0
+
+for (const product of products) {
+    const TV= product.stock;
+    totalstock += TV;
+}
+for (const product of products) {
+    const TV= product.stock * product.price;
+    totalvalue += TV;
+}
+let valuable = availableproduct.sort((a,b) => b.price - a.price)
+
+
+console.log(availableproduct)
+console.log(productname)
+console.log('total stock: ' + totalstock)
+console.log('total value: ' + totalvalue)
+console.log(valuable)

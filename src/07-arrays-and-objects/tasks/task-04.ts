@@ -28,3 +28,22 @@ const cart = [
         quantity: 1,
     },
 ];
+
+
+let total = cart.reduce((sum, p) => sum + p.price * p.quantity, 0)
+
+
+const discountRate= [
+    {min: 3000000, rate: 0.10},
+    {min: 2000000, rate: 0.05},
+];
+
+const ttldiscount = discountRate.find((rule) => total >= rule.min)?.rate ?? 0;   
+const discount = total * ttldiscount;
+const finaltotal = total - discount
+const exP = cart.filter((cart) => cart.price >1000000)
+
+console.log(total)
+console.log(ttldiscount*100 + "%", discount)
+console.log(finaltotal)
+console.log(exP)

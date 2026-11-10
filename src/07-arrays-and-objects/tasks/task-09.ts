@@ -33,3 +33,20 @@ const posts = [
     likes: 300,
   },
 ];
+
+const findPostsByHashtag = (hashtag: string) => {
+  return posts.filter(post => post.hashtags.includes(hashtag));
+}
+
+const findPostWithHighestLikes = () => {
+  return posts.reduce((maxPost, currentPost) => currentPost.likes > maxPost.likes ? currentPost : maxPost);
+}
+
+const calculateTotalLikes = () => {
+  return posts.reduce((total, post) => total + post.likes, 0);
+}
+
+console.log("1. Posts containing 'typescript':", findPostsByHashtag("typescript"));
+console.log("2. Posts containing 'nestjs':", findPostsByHashtag("nestjs"));
+console.log("3. Post with highest number of likes:", findPostWithHighestLikes());
+console.log("4. Total number of likes:", calculateTotalLikes());

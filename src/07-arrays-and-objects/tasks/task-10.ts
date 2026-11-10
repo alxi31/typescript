@@ -72,3 +72,77 @@ const submissions = [
     },
 ];
 
+const calculateStudentScore = (studentSubmission: { student: string; answers: { questionId: number; answer: string }[] }) => {
+    let score = 0;
+    studentSubmission.answers.forEach(answer => {
+        const question = questions.find(q => q.id === answer.questionId);
+        if (question && question.correctAnswer === answer.answer) {
+            score += 25;
+        }
+    });
+    return score;
+}
+
+const determineStudentCorrectAnswers = (studentSubmission: { student: string; answers: { questionId: number; answer: string }[] }) => {
+    let correct = 0;
+    let wrong = 0;
+    studentSubmission.answers.forEach(answer => {
+        const question = questions.find(q => q.id === answer.questionId);
+        if (question && question.correctAnswer === answer.answer) {
+            correct++;
+        } else {
+            wrong++;
+        }
+    });
+    return { student: studentSubmission.student, correct, wrong };
+}
+
+const calculateAverageScoreByCategory = () => {
+    const categoryScores: { [category: string]: { totalScore: number; count: number } } = {};
+    submissions.forEach(submission => {
+        submission.answers.forEach(answer => {
+            const question = questions.find(q => q.id === answer.questionId);
+            if (question) {
+                if (!categoryScores[question.category]) {
+                    categoryScores[question.category] = { totalScore: 0, count: 0 };
+                }
+                if (question.correctAnswer === answer.answer) {
+                    categoryScores[question.category].totalScore += 25;
+                }
+                categoryScores[question.category].count++;
+            }
+        });
+    });
+    const averageScores: { [category: string]: number } = {};
+    for (const category in categoryScores) {
+        averageScores[category] = categoryScores[category].totalScore / categoryScores[category].count;
+    }
+    return averageScores;
+}
+
+const generateFinalExamAnalytics = () => {
+    const totalStudents = submissions.length;
+    const scores = submissions.map(calculateStudentScore);
+    const averageScore = scores.reduce((sum, score) => sum + score, 0) / totalStudents;
+    const highestScore = Math.max(...scores);
+    const lowestScore = Math.min(...scores);
+    const passedStudents = scores.filter(score => score >= 70).length;
+    const failedStudents = totalStudents - passedStudents;
+    const passRate = (passedStudents / totalStudents) * 100;
+    const analytics = {
+        totalStudents,
+        averageScore,
+        highestScore,
+        lowestScore,
+        passedStudents,
+        failedStudents,
+        passRate,
+    };
+    return analytics;
+}
+
+console.log("1. Student scores:", submissions.map(submission => ({ student: submission.student, score: calculateStudentScore(submission) })));
+console.log("2. Student correct answers:", submissions.map(determineStudentCorrectAnswers));
+console.log("3. Average score by category:", calculateAverageScoreByCategory());
+console.log("4. Final exam analytics:", generateFinalExamAnalytics());
+

@@ -24,3 +24,38 @@ const borrowings = [
     { student: "Eka", bookId: 1, days: 4 },
     { student: "Andi", bookId: 3, days: 8 },
 ];
+
+
+const findBorrowingsByStudent = (studentName: string) => {
+    return borrowings.filter(borrowing => borrowing.student === studentName);
+}
+
+const findBookInfoByBorrowing = (borrowing: { student: string; bookId: number; days: number }) => {
+    return books.find(book => book.id === borrowing.bookId);
+}
+
+const findStudentsByBookCategory = (category: string) => {
+    const bookIds = books.filter(book => book.category === category).map(book => book.id);
+    return borrowings.filter(borrowing => bookIds.includes(borrowing.bookId)).map(borrowing => borrowing.student);
+}
+
+const calculateTotalBorrowings = () => {
+    return borrowings.length;
+}
+
+const calculateAverageBorrowingDuration = () => {
+    const totalDays = borrowings.reduce((sum, borrowing) => sum + borrowing.days, 0);
+    return totalDays / borrowings.length;
+}
+
+const findStudentsWithLongBorrowings = (days: number) => {
+    return borrowings.filter(borrowing => borrowing.days > days).map(borrowing => borrowing.student);
+}
+
+console.log("1. Borrowing transactions for Andi:", findBorrowingsByStudent("Andi"));
+console.log("2. Book information for each borrowing transaction:", borrowings.map(findBookInfoByBorrowing));
+console.log("3. Students who borrowed programming books:", findStudentsByBookCategory("Programming"));
+console.log("4. Total number of borrowing transactions:", calculateTotalBorrowings());
+console.log("5. Average borrowing duration:", calculateAverageBorrowingDuration());
+console.log("6. Students who borrowed books for more than 7 days:", findStudentsWithLongBorrowings(7));
+
